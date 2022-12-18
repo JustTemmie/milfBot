@@ -86,7 +86,7 @@ class events(commands.Cog):
             
             await ctx.reply(file=discord.File("bottom.png"))
 
-    @commands.command(name="milf")
+    @commands.command(name="milf", description="sends a milf")
     async def milfCommand(self, ctx):
         if not ctx.channel.is_nsfw():
             return await ctx.reply("please use this command in a NSFW channel")
@@ -94,9 +94,9 @@ class events(commands.Cog):
         await self.send_reddit(ctx.channel.id, "milf", True, 50)
     
     @commands.command(
-        name="reddit",
-        aliases=["red", "r/", "rslash", "r"],
-        brief="get a random reddit post from the specified subreddit",
+        name="r",
+        aliases=["red", "r/", "rslash", "reddit"],
+        brief="sends something from the subreddit, if you don't specify one it will pick one from an internal list",
     )
     async def reddit_search(self, ctx, search=None):
         if not ctx.channel.is_nsfw():

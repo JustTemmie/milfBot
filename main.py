@@ -13,6 +13,7 @@ import discord
 from discord.ext import tasks, commands
 
 from dotenv import load_dotenv
+from pretty_help import PrettyHelp
 
 # Load dotenv file
 load_dotenv("keys.env")
@@ -53,6 +54,7 @@ class MyBot(commands.Bot):
             command_prefix=commands.when_mentioned_or(*prefixes),
             intents=discord.Intents.all(),
             owner_ids=OWNER_IDS,
+            help_command=PrettyHelp(),
         )
         self.synced = False
     
