@@ -92,7 +92,7 @@ bot.ready = False
 @tasks.loop(minutes = 1)
 async def change_status_task():
     await bot.change_presence(
-        status=discord.Status.idle,
+        status=discord.Status.dnd,
         activity=discord.Activity(type=discord.ActivityType.watching, name="sauce"),
     )
 
