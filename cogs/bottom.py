@@ -136,7 +136,13 @@ class events(commands.Cog):
                 req_len = len(json["data"]["children"])
                 
                 if imageRequired:
+                    offset = random.randint(0, req_len)
                     for i in range(req_len):
+                        i += offset
+                        if i > req_len:
+                            i -= req_len
+                        
+                        print(i)
                         post = json["data"]["children"][i]
                         url = post["data"]["url"] # can be image or post link
                         if re.match(r".*\.(jpg|png|gif)$", url):
