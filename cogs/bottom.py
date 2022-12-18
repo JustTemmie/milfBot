@@ -19,7 +19,7 @@ import string
 class events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
+
     @commands.Cog.listener()
     async def on_error(self, err, *args, **kwargs):
         await self.bot.get_channel(984577196616216616).send(f"{err}")
@@ -60,15 +60,24 @@ class events(commands.Cog):
         else:
             raise exc
 
-
     @commands.Cog.listener()
     async def on_message(self, ctx):
         if ctx.author.bot:
             return
-
+        
         if "🥺" in ctx.content:
+            linkIndex = 0
+            urlChars = ["h", "t", "t", "p", " "]
             for char in ctx.content.lower():
-                if char in string.ascii_lowercase:
+                if linkIndex == 4 and char != ' ':
+                    pass
+
+                elif linkIndex <= 4 and char == urlChars[linkIndex]:
+                    linkIndex += 1
+                    if linkIndex == 5:
+                        linkIndex = 0
+
+                elif char in string.ascii_lowercase:
                     return
                 
             if random.randint(0, 80) != 2:
@@ -76,7 +85,7 @@ class events(commands.Cog):
                 return
             
             await ctx.reply(file=discord.File("bottom.png"))
-    
+
     @commands.command(name="milf")
     async def milfCommand(self, ctx):
         if not ctx.channel.is_nsfw():
