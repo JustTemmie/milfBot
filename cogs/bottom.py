@@ -102,7 +102,6 @@ class events(commands.Cog):
                 "girlswithiphones",
                 "freshfromtheshower",
                 "xposing",
-                "blonde",
                 "girlswithglasses",
                 "seethru",
                 "barelyclothed",
