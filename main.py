@@ -46,6 +46,8 @@ class MyBot(commands.Bot):
         prefixes.append("🥺")
         prefixes.append("mommy ")
         prefixes.append("mommy")
+        prefixes.append("Mommy ")
+        prefixes.append("Mommy")
         
         super().__init__(
             command_prefix=commands.when_mentioned_or(*prefixes),
