@@ -14,6 +14,8 @@ import re
 
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
 
+import string
+
 class events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -64,7 +66,11 @@ class events(commands.Cog):
         if ctx.author.bot:
             return
 
-        if ctx.content == "🥺":
+        if "🥺" in ctx.content:
+            for char in ctx.content.lower():
+                if char in string.ascii_lowercase:
+                    return
+                
             if random.randint(0, 80) != 2:
                 await ctx.reply("What the fuck is 🥺 use your words I don't speak bottom")
                 return
