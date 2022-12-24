@@ -135,7 +135,7 @@ class events(commands.Cog):
             ])
         await self.send_reddit(ctx.channel.id, search, True, 50)
     
-    async def send_reddit(self, channel, subreddit, imageRequired=False, limit=25):
+    async def send_reddit(self, channel, subreddit, imageRequired=False, limit=50):
         if self.bot.is_ready():
             try:
                 req = requests.get(
